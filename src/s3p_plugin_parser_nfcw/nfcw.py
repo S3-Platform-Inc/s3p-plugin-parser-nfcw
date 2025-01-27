@@ -11,16 +11,13 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.support.ui import WebDriverWait
 import dateutil.parser
-import pytz
 
 class NFCW(S3PParserBase):
     """
     A Parser payload that uses S3P Parser base class.
     """
     HOST = "https://www.nfcw.com"
-    utc = pytz.UTC
-    date_begin = utc.localize(datetime.datetime(2023, 12, 6))
-    def __init__(self, refer: S3PRefer, plugin: S3PPlugin, web_driver: WebDriver, restrictions: S3PPluginRestrictions):
+    def __init__(self, refer: S3PRefer, plugin: S3PPlugin, restrictions: S3PPluginRestrictions, web_driver: WebDriver):
         super().__init__(refer, plugin, restrictions)
 
         # Тут должны быть инициализированы свойства, характерные для этого парсера. Например: WebDriver
